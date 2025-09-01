@@ -1,32 +1,27 @@
-<<<<<<< HEAD
-# SerieA-Prediccion
-<<<<<<< HEAD
-Pronostico de la Serie A 2026. Con las probabilidades de puntaje, posiciones, y métricas de los equipos
-=======
-Dashboard interactivo para predicción de resultados en la Serie A italiana.
->>>>>>> 9f341bb8d9ec936343a6ce9ca4532a5fdee75510
-=======
-# ⚽ SerieA-Prediccion
+# ⚽ Predicción Serie A 2026
 
-Dashboard interactivo para predicción de resultados en la Serie A italiana usando modelos de machine learning.
+Dashboard interactivo para visualizar y analizar predicciones de puntos en la Serie A italiana, basado en métricas ofensivas, defensivas y de posesión.
 
-## 📊 Descripción
+## 🚀 ¿Qué incluye?
 
-Este proyecto permite visualizar estadísticas, realizar predicciones de partidos y explorar datos históricos de la Serie A. Está construido con Python y Streamlit, y utiliza modelos de clasificación para estimar resultados.
+- Visualización de ranking proyectado por puntos
+- Panel individual por equipo con métricas clave
+- Matriz de correlaciones entre variables
+- Filtros por zona de tabla y equipo
 
-## 🧠 Tecnologías utilizadas
+## 📊 Datos utilizados
 
-- Python 3.10+
-- Pandas, NumPy
-- Scikit-learn
-- Streamlit
-- Matplotlib / Seaborn
-- XGBoost (opcional)
+- `serie_a_2024.csv`: Datos originales extraídos manualmente
+- `serie_a_2024_procesado.csv`: Datos procesados con nuevas métricas
+- `prediccion_serie_a_2026.csv`: Resultados del modelo de regresión lineal
 
-## 🚀 Cómo ejecutar el proyecto
+## 🧠 Modelo
 
-1. Clona el repositorio:
-   ```bash
-   git clone https://github.com/Gabogabo21/SerieA-Prediccion.git
-   cd SerieA-Prediccion
->>>>>>> 49d0e205c14a5ff73b59e5444c183f0aec47330a
+Se utiliza regresión lineal para estimar los puntos proyectados en base a:
+
+- Goles a favor y en contra
+- Posesión
+- Precisión de pases
+- Eficiencia ofensiva y defensiva
+
+
