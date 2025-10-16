@@ -99,3 +99,4 @@ corr = df_corr.corr()
 fig3, ax3 = plt.subplots(figsize=(8, 6))
 sns.heatmap(corr, annot=True, cmap="coolwarm", fmt=".2f", ax=ax3)
 st.pyplot(fig3)
+
