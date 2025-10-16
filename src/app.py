@@ -17,13 +17,41 @@ st.write("Bienvenido al dashboard de análisis y predicción.")
 
 # Cargar datos con manejo de errores
 @st.cache_data
+# Cargar datos predefinidos (sin intentar cargar archivos)
+@st.cache_data
 def load_data():
-    try:
-        # Intentar cargar datos reales
-        df_pred = pd.read_csv("data/prediccion_serie_a_2026.csv")
-        df_extra = pd.read_csv("data/serie_a_2024_procesado.csv")
-        st.success("✅ Datos cargados correctamente desde archivos CSV")
-        return df_pred, df_extra
+    # Datos predefinidos para Serie A
+    equipos_serie_a = [
+        'Inter', 'Juventus', 'Milan', 'Napoli', 'Atalanta', 'Roma', 
+        'Lazio', 'Fiorentina', 'Bologna', 'Torino', 'Monza', 'Genoa',
+        'Lecce', 'Sassuolo', 'Frosinone', 'Verona', 'Empoli', 'Cagliari',
+        'Udinese', 'Salernitana'
+    ]
+    
+    # Datos de predicción 2026
+    puntos_predichos = [85.2, 78.5, 76.8, 74.3, 71.6, 68.9, 66.4, 63.7, 61.2, 58.5, 
+                       55.8, 53.1, 50.4, 47.7, 45.0, 42.3, 39.6, 36.9, 34.2, 31.5]
+    
+    df_pred = pd.DataFrame({
+        'Equipo': equipos_serie_a,
+        'Puntos_Predichos_2026': puntos_predichos
+    })
+    
+    # Datos de temporada actual
+    datos_extra = {
+        'Goles': [75, 68, 72, 65, 70, 63, 60, 58, 55, 52, 48, 45, 42, 40, 38, 35, 32, 30, 28, 25],
+        'Goles_Contra': [25, 30, 35, 32, 38, 40, 36, 42, 45, 48, 50, 52, 55, 58, 60, 62, 65, 68, 70, 75],
+        'Posicion': range(1, 21),
+        'Posesion': [65.2, 58.7, 61.3, 59.8, 57.6, 55.4, 54.2, 52.8, 51.3, 49.7, 
+                    48.5, 47.2, 46.1, 45.3, 44.2, 43.5, 42.7, 41.9, 40.8, 39.5],
+        'Pases_Precisos': [88.5, 85.2, 86.8, 84.7, 83.1, 82.3, 81.6, 80.9, 79.4, 78.2,
+                          77.1, 76.3, 75.4, 74.6, 73.8, 72.9, 71.8, 70.6, 69.7, 68.3]
+    }
+    
+    df_extra = pd.DataFrame(datos_extra)
+    df_extra['Equipo'] = equipos_serie_a
+    
+    return df_pred, df_extra
     except:
         # Crear datos de ejemplo si los archivos no existen
         st.warning("⚠️ No se encontraron archivos CSV. Usando datos de ejemplo.")
@@ -219,3 +247,4 @@ st.sidebar.info("""
 # Footer
 st.markdown("---")
 st.caption("Desarrollado con Streamlit | Datos de demostración para análisis predictivo")
+
